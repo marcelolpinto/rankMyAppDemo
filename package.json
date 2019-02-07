@@ -9,6 +9,7 @@
     "ebay-node-api": "^2.5.1",
     "express-busboy": "^7.0.1",
     "http-proxy-middleware": "^0.19.1",
+    "lodash.sortby": "^4.7.0",
     "mongoose": "^5.4.10",
     "morgan": "^1.9.1",
     "node-cron": "^2.0.3",

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const axios = require('axios');
+const sortby = require('lodash.sortby');
 
 const APP_ID = 'MarceloP-rankMyAp-PRD-aa6d0a603-c010a1a8';
 const EBAY_URI = `https://svcs.ebay.com/services/search/FindingService/v1?operation-name=findItemsByKeywords&service-version=1.12.0&security-appname=${APP_ID}&global-id=EBAY-US&response-data-format=JSON&REST-PAYLOAD&paginationInput.entriesPerPage=3`;
@@ -50,15 +51,16 @@ const sendEmail = async (req, res, mailer) => {
   const ebayPromise = await axios.get(ebayUri);
 
   let items = ebayPromise.data.findItemsByKeywordsResponse[0].searchResult[0].item;
-  items = items.map(item => {
+  items = sortby(items.map(item => {
     const { currentPrice } = item.sellingStatus[0];
     const price = currentPrice[0]['@currencyId'] + ' ' + currentPrice[0]['__value__'];
 
     return {
       title: item.title[0],
-      price
+      price,
+      rawPrice: parseFloat(currentPrice[0]['__value__'])
     }
-  });
+  }), 'rawPrice');
 
   let mailText = `Resultados da busca ${search}:\n\n`;
   for(let i of items) {

@@ -46,7 +46,6 @@ class App extends Component {
 
   componentDidUpdate() {
     let { alerts } = this.state;
-    console.log(alerts);
 
     for(let a of alerts) {
       if(!this.intervals[a._id]) { 
@@ -58,7 +57,7 @@ class App extends Component {
     }
 
     for(let i in this.intervals) {
-      let index = alerts.findIndex(a => a._id == i);
+      let index = alerts.findIndex(a => a._id === i);
       if(index === -1) delete this.intervals[i];
     }
   }
@@ -112,8 +111,6 @@ class App extends Component {
 
   render() {
     const { search, email, frequency, validationError } = this.state;
-
-    console.log('intervals', this.intervals);
 
     return (
       <div className="App">
