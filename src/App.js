@@ -113,7 +113,7 @@ class App extends Component {
   }
 
   render() {
-    const { search, email, frequency, validationError } = this.state;
+    const { search, email, frequency, validationError, updating } = this.state;
 
     return (
       <div className="App">
@@ -123,11 +123,11 @@ class App extends Component {
             <p>Selecione a busca do eBay, o email para quem enviar e a frequência desejada para criar um alerta.</p>
             <div className='input-group'>
               <label htmlFor='search'>Busca</label>
-              <input type='text' id='search' onChange={this.handleChange} value={search} />
+              <input disabled={updating} type='text' id='search' onChange={this.handleChange} value={search} />
             </div>
             <div className='input-group'>
               <label htmlFor='email'>Email</label>
-              <input type='text' id='email' onChange={this.handleChange} value={email} />
+              <input disabled={updating} type='text' id='email' onChange={this.handleChange} value={email} />
             </div>
             <div className='input-group' onChange={this.handleRadioChange}>
               <label>Frequência </label>
@@ -144,7 +144,7 @@ class App extends Component {
                 <label className='radio'>A cada 30 minutos</label>
               </div>
             </div>
-            <button className='create' onClick={this.handlePostSubmit} disabled={!search || !email || !frequency} >
+            <button className='create' onClick={this.handlePostSubmit} disabled={!search || !email || !frequency || updating} >
               Criar Alerta
             </button>
             <div className='error'>{validationError}</div>
