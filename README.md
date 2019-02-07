@@ -7,8 +7,7 @@ In the project directory, you should run:
 ### `npm install`
 ### `npm run dev`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+The application will run in both 3000 and 3001 ports (API on 3001) <br/>
+PS: I didn't make the CRON Jobs linked to a lambda function. The CRONs are defined in the front-end. I know it's not the best practice and probably no the solution wanted, but I did it this way due to the short available time. <br/>
+Given this, the emails will only be sent while the application is <b>running</b>. <br/><br/>
+PS2: Didn't add docker due to short available time (looking forward to learn how to use docker with you ;*)
