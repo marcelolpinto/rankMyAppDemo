@@ -58,7 +58,10 @@ class App extends Component {
 
     for(let i in this.intervals) {
       let index = alerts.findIndex(a => a._id === i);
-      if(index === -1) delete this.intervals[i];
+      if(index === -1) {
+        this.intervals[i].destroy();
+        delete this.intervals[i];
+      }
     }
   }
 
@@ -142,7 +145,7 @@ class App extends Component {
               </div>
             </div>
             <button className='create' onClick={this.handlePostSubmit} disabled={!search || !email || !frequency} >
-              Salvar Alerta
+              Criar Alerta
             </button>
             <div className='error'>{validationError}</div>
           </div>
@@ -220,6 +223,7 @@ class App extends Component {
       const index = alerts.findIndex(a => a._id === _id);
       if(index !== -1) alerts.splice(index, 1, res.data.alert);
 
+      this.intervals[_id].destroy();
       delete this.intervals[_id];
       this.setState({ alerts, updating: null });
     }).catch(err => {
