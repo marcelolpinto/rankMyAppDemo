@@ -2,31 +2,127 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  font-size: 16px;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div.error {
+  margin-top: 32px;
+  color: #C6757B;
+  font-size: 16px;
+}
+
+.half-section {
+  width: 50%;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
+  align-items: flex-start;
+  align-items: flex-start;
+  padding: 32px;
+}
+
+.half-section.-right {
+  background-color: #464D59;
+}
+
+.input-group {
+  width: 300px;
+  margin-top: 16px;
+}
+
+.input-group label {
+  display: block;
+  text-align: left; 
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.radio-wrapper {
+  display: block;
+  text-align: left;
+}
+
+input[type=radio], label.radio {
+  display: inline-block;
+}
+
+label.radio {
+  font-weight: 400;
+  margin-left: 16px;
+}
+
+input[type=text] {
+  width: 300px;
+}
+
+button.create {
+  padding: 16px 32px;
+  background-color: #0F1726;
+  color: white;
+  margin-top: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+div.empty {
+  font-size: 14px;
+}
+
+div.alert-card {
+  flex: 1;
+  border: 2px solid #DDD;
+  padding: 16px;
+  padding-top: 8px;
+  box-sizing: border-box;
+}
+
+div.alert-card + div.alert-card {
+  margin-top: 16px;
+}
+
+div.alert-card:last-child {
+  margin-bottom: 32px;
+}
+
+div.alert-card .left-section {
+  text-align: left;
+  font-size: 18px;
+  width: calc(60% - 16px);
+  display: inline-block;
+}
+
+div.alert-card b {
+  margin-right: 16px;
+}
+
+div.alert-card .left-section > div {
+  margin-top: 8px;
+}
+
+div.alert-card .right-section {
+  text-align: right;
+  width: calc(40% - 16px);
+  display: inline-block;
+}
+
+div.alert-card .action {
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: underline;
+  margin-top: 8px;
 }
