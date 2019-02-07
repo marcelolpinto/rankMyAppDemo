@@ -5,6 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you should run:
 
 #### `npm install`
+
+and then
 #### `npm run dev`
 
 The application will run in both 3000 and 3001 ports (API on 3001) <br/>
